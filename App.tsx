@@ -87,6 +87,13 @@ export default function App() {
           startInLoadingState={false}
           allowsBackForwardNavigationGestures
           setSupportMultipleWindows={false}
+          allowsInlineMediaPlayback
+          mediaPlaybackRequiresUserAction={false}
+          {...(Platform.OS === "ios"
+            ? ({
+                mediaCapturePermissionGrantType: "grantIfSameHostElsePrompt",
+              } as const)
+            : {})}
         />
       )}
 
